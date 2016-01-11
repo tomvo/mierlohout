@@ -36,7 +36,7 @@
 
         // restore album list from hidden div if exists
         if(data.loaded) {
-            this.children('div:last').html('loading...').hide();
+            this.children('div:last').html('Bezig met laden...').hide();
             this.children('span[class="picasagallery_title"]:first').html('');
             this.children('div:first').show();
             busy = false;
@@ -46,8 +46,8 @@
         var protocol = document.location.protocol == 'http:' ? 'http:' : 'https:';
         var url    = protocol + '//picasaweb.google.com/data/feed/api/user/' + data.username + '?kind=album&access=public&alt=json';
 
-        // print loading message
-        this.html("loading...");
+        // print Bezig met laden message
+        this.html("Bezig met laden...");
 
         // make ajax call to get public picasaweb albums
         $.getJSON(url, 'callback=?', $.proxy(function(json) {
@@ -110,7 +110,7 @@
         var url = protocol + '//picasaweb.google.com/data/feed/api/user/' + data.username + '/album/' + album + '?kind=photo&alt=json';
 
         // initialize album html content
-        dom.children('div:last').html('loading...').show();
+        dom.children('div:last').html('Bezig met laden...').show();
         dom.children('div:first').hide();
 
         // make ajax call to get album's images
